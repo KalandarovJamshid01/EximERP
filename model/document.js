@@ -18,9 +18,9 @@ const docSchema = mongoose.Schema(
       type: mongoose.Schema.ObjectId,
       ref: users,
     },
-    doc_status_id: {
-      type: mongoose.Schema.ObjectId,
-      ref: docStatuses,
+    doc_status: {
+      type: String,
+      enum: ["otklyuchena", "zavershena", "v obrabotke"],
     },
   },
   { timestamps: true }
