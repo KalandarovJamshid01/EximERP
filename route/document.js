@@ -1,9 +1,7 @@
 const router = require("express").Router();
 const document = require("./../controller/document");
-const multer = require("multer");
-const upload = multer({ dest: "./files/" });
-const { addFile } = require("./../controller/fileUpload");
-router.route("/").post(addFile);
+const verify = require("./../verify.js");
+router.route("/").post(verify, document.addFile);
 // router
 //   .route("/:id")
 //   .get(document.getOne)

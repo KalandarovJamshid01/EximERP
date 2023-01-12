@@ -10,8 +10,8 @@ const docSchema = mongoose.Schema(
     sertifikat_proisxojdeniye: String,
     dopolnitelniy_docs: String,
     foto_tovar: String,
-    TNVED: String,
-    sostavleniye_docs: String,
+    TNVED: Boolean,
+    sostavleniye_docs: Boolean,
     prochie_docs: String,
     comment: String,
     user_id: {
