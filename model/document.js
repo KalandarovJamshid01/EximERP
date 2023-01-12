@@ -16,7 +16,6 @@ const docSchema = mongoose.Schema(
     comment: String,
     user_id: {
       type: mongoose.Schema.ObjectId,
-      ref: users,
     },
     doc_status: {
       type: String,
