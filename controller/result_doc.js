@@ -1,7 +1,7 @@
 const multer = require("multer");
 const path = require("path");
 const Result = require("../model/resultDocs.js");
-
+const Document = require("./../model/document");
 let storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, "./files/"),
   filename: (req, file, cb) => {
@@ -37,6 +37,9 @@ const addFile = async (req, res) => {
         comment: req.body.comment,
       });
       const response = await file.save();
+      await Document.findByIdAndUpdate(req.params.id, {
+        doc_status: req.body.doc_status,
+      });
       return res.json({
         message: "Success",
         response,
