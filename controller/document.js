@@ -1,7 +1,6 @@
 const multer = require("multer");
 const path = require("path");
 const Document = require("../model/document");
-const { v4: uuid4 } = require("uuid");
 
 let storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, "./files/"),
