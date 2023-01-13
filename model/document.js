@@ -20,7 +20,7 @@ const docSchema = mongoose.Schema(
     doc_status: {
       type: String,
       enum: ["otklyuchena", "zavershena", "v obrabotke"],
-      default: "V obrabotke",
+      default: "v obrabotke",
     },
   },
   { timestamps: true }
