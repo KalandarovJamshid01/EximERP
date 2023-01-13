@@ -100,7 +100,7 @@ const get_all_doc = async (req, res) => {
     return res.json(error);
   }
 };
-get_one_document = async (req, res, next) => {
+const get_one_document = async (req, res, next) => {
   try {
     const document = await Document.findById(req.params.id);
 
@@ -109,6 +109,16 @@ get_one_document = async (req, res, next) => {
     return res.json(error);
   }
 };
+
+const get_doc_by_user_id = async (req, res, next) => {
+  try {
+    const documents = await Document.findOne({ user_id: req.params.user_id });
+    res.status(200).json(documents);
+  } catch (error) {
+    return res.json(error);
+  }
+};
+
 const downloadFile = async (req, res) => {
   console.log("hello");
   const file = await Document.findById(req.params.id);
@@ -116,4 +126,10 @@ const downloadFile = async (req, res) => {
   const filePath = `files/${req.params.doc_file}`;
   res.download(filePath);
 };
-module.exports = { addFile, downloadFile,get_all_doc,get_one_document };
+module.exports = {
+  addFile,
+  downloadFile,
+  get_all_doc,
+  get_one_document,
+  get_doc_by_user_id,
+};
