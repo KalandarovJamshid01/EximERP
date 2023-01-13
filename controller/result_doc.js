@@ -65,4 +65,13 @@ const downloadFile = async (req, res) => {
   const filePath = `files/${req.params.doc_file}`;
   res.download(filePath);
 };
-module.exports = { addFile, downloadFile, getResDoc };
+
+const allResults = async (req, res) => {
+  const all = await Result.find();
+
+  res.json({
+    message: "success",
+    all,
+  });
+};
+module.exports = { addFile, downloadFile, getResDoc, allResults };
