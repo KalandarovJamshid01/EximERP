@@ -116,4 +116,4 @@ const downloadFile = async (req, res) => {
   const filePath = `files/${req.params.doc_file}`;
   res.download(filePath);
 };
-module.exports = { addFile, downloadFile,get_all_doc,get_one_document };
+module.exports = { addFile, downloadFile, get_all_doc, get_one_document };
